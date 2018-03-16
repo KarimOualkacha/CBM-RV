@@ -1,6 +1,6 @@
-##' Main function of the CBM-RV package
+##' Main function of the CBMRV package
 ##'
-##' The CBM.RV function is the main function of the CBM-RV
+##' The CBM.RV function is the main function of the CBMRV
 ##' used package.
 ##'
 ##' @title CBM.RV main function
