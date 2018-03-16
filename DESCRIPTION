@@ -1,4 +1,4 @@
-Package: CBM-RV
+Package: CBMRV
 Title: Several Methods for Region-Based Genetic Association Tests
 Version: 0.0.1
 Authors@R: c(person("Karim", "Oualkacha", email =
