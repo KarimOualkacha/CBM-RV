@@ -1,6 +1,6 @@
 ## CBMRV
 
-This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBMRV) region-based association test, in presence of familial data. 
+This an R package which implements a Multivariate Copula-Based Rare-Varaints (CBMRV) region-based association test, in presence of familial data. 
 
 CBMRV is a statistical tool for testing the association between a mutivariate response vector and a genomic region. It is a copula-based method that allows for flexible modelling of the dependence between two test statitics and provides a unified p.value. It implements four test statistics:
 
@@ -20,16 +20,23 @@ For this first version, we provide score test ans p.value calculation in the biv
 
 ## Installation
 
-This package can be installed from GitHub using the [devtools](https://cran.r-project.org/package=devtools) package:
-
-``` r
-library(devtools)
-devtools::install_github('KarimOualkacha/CBMRV')
-```
+The CBMRV package is under construction, however, source R functions that are needed to calculate the score test statistics and p.vlaues can be obtained from the GitHub repository ```CBMRV```. To run the CBMRV test, one can download the CBMRV R source files to a personal directory and call all R functions using ```source()``` function in R. See below a toy example for more details on how to calculate p.values. 
 
 The main functions are ```CMB.RV``` and ```CMB.RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
 
+
 ## Running example
+All the required R functions, including the two main R functions ```CMB.RV``` and ```CMB.RV.null```, can be downloaded via ```source()``` funtion in R, as follow:
+
+``` r
+path = "path_to_R_files_"
+
+source(paste(path,"/functions.R", sep=""))
+source(paste(path,"/inputChecksCBMRV.R", sep=""))
+source(paste(path,"/mainCBM-RV.R", sep=""))
+source(paste(path,"/CBM-RV-Null.R", sep=""))
+```
+
 Before running an association test with one (or more) of the methods,
 the following data needs to be present:
 
@@ -38,7 +45,7 @@ an R matrix (one raw for each individual). It is up to you (as user)
 to create the matrix, for example by reading it from a CSV file using R's
 |read.csv()| function or like this:
 ``` r
-data(phenotypes)
+source(paste(path,"/phenotypes.dat", sep=""))
 head(phenotypes)
 ```
 
@@ -46,29 +53,29 @@ head(phenotypes)
   of a matrix. Like the phenotype data it is up to you to load this
   data. Here we will load the data from the CBM-RV package:
 ``` r
-data(covariates)
+source(paste(path,"/covariates.dat", sep=""))
 dim(covariates)
 ```
 
 ```Genotype data```; genotype data this data should be present in the form
   of a matrix.
 ``` r
-data(genotypes)
+source(paste(path,"/genotypes.dat", sep=""))
 head(genotypes)
-dim(covariates)
 ```
 
 ```Relationship matrix```; each of the methods requires a (symmetric) relationship matrix (2 $\times$ the kinship matrix). In this example we will load this matrix from the CBM-RV package.
 
 ``` r
-load("kin1.Rdata")
+load("paste(path,"/kin1.Rdata", sep=""))
 kin <- 2 *kin1
 dim(kin)
 ```
+
 To run the main function and get p.value estimates, one needs to estimate the phenotypes variances-covariances matrix under the null model.
 
 ``` r
-null.obj = CBM.RV.Null(Y, 
+null.obj = CBM.RV.Null(Y=phenotypes, 
                        covariates = covariates, 
                        kin, 
                        nb.running.guess = 3)
@@ -76,7 +83,7 @@ null.obj = CBM.RV.Null(Y,
 Now one can run the main function in order to calculate copula-based p.value:
 
 ``` r
-CBM.RV(y=Y, 
+CBM.RV(Y=phenotypes, 
        G=Geno, 
        covariates=covariates, 
        null.obj=null.obj, 
