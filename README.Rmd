@@ -41,11 +41,11 @@ vignette("pcev")
 
 ## Installation
 
-This package is available on the ... [CRAN](https://cran.r-project.org/package=pcev). It can be installed from GitHub using the [devtools](https://cran.r-project.org/package=devtools) package:
+This package can be installed from GitHub using the [devtools](https://cran.r-project.org/package=devtools) package:
 
 ``` r
 library(devtools)
-devtools::install_github('GreenwoodLab/CBM-RV', build_vignettes = TRUE)
+devtools::install_github('KarimOualkacha/CBM-RV')
 ```
 
 The main functions are ```CMB-RV``` and ```CMB-RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
