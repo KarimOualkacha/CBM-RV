@@ -29,7 +29,7 @@ The main functions are ```CMB.RV``` and ```CMB.RV.null```, and indeed most users
 All the required R functions, including ```CMB.RV``` and ```CMB.RV.null```, can be downloaded via ```source()``` funtion in R, as follow:
 
 ``` r
-path = "path_to_R_files_"
+path = "path_to_R_file_sources"
 
 source(paste(path,"/functions.R", sep=""))
 source(paste(path,"/inputChecksCBMRV.R", sep=""))
