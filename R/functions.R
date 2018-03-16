@@ -359,10 +359,10 @@ eig.val.K12<- function(Y.tilde, K1.tilde,K2.tilde){
 #-------------------------------------------------------------------------------------------#
 #                                                                                           #
 #-------------------------------------------------------------------------------------------#
-Kernel.Geno <- function(Geno,freq.MAF){
+Kernel.Geno <- function(G,freq.MAF){
   if( length(freq.MAF) == 1){
     w = (dbeta(freq.MAF, 1, 25))^2
-    K = w * Geno %*% t(Geno)
+    K = w * G %*% t(G)
   } else
   {
     w = vector(length = length(freq.MAF))
@@ -370,7 +370,7 @@ Kernel.Geno <- function(Geno,freq.MAF){
       w[i] = (dbeta(freq.MAF[i], 1, 25))^2
     }
     w = diag(w)
-    K = Geno %*% w %*% t(Geno)
+    K = G %*% w %*% t(G)
   }
   return(K)
 }
@@ -392,16 +392,16 @@ eigen.Omega0 = function(Sigma.RG, Sigma.e, kin){
 #-------------------------------------------------------------------------------------------#
 #                                                                                           #
 #-------------------------------------------------------------------------------------------#
-K1K2 = function(Y.multi, Geno, inv.sqrt.Omega0, covariates = NULL){
+K1K2 = function(Y.multi, G, inv.sqrt.Omega0, covariates = NULL){
   # Y.multi is a matrix N  x 2 with rows designate subjects and columns are pheno1 and pheno 2
-  # Geno: N x r matrix of genotypes  
+  # G: N x r matrix of genotypes  
   # inv.sqrt.Omega0: the sqrt of the Variance-covariance matrix of (Y.multi[,1]^t, Y.multi[,2]^t)^t under the null  
   
   N = dim(Y.multi)[1]
   d = dim(Y.multi)[2]
   #---------------------------------------
-  freq.MAF = apply(Geno, 2, mean)/2
-  K <- Kernel.Geno(Geno,freq.MAF)
+  freq.MAF = apply(G, 2, mean)/2
+  K <- Kernel.Geno(G,freq.MAF)
   #---------------------------------------
   Y.Cov = c(Y.multi) 
   un.n = c(rep(1,N))
