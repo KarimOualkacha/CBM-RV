@@ -1,15 +1,15 @@
-## CBM-RV
+## CBMRV
 
-This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBM-RV) region-based association test, in presence of familial data. 
+This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBMRV) region-based association test, in presence of familial data. 
 
-CBM-RV is a statistical tool for testing the association between a mutivariate response vector and a genomic region. It is a copula-based method that allows for flexible modelling of the dependence between two test statitics and provides a unified p.value. It implements four test statistics:
+CBMRV is a statistical tool for testing the association between a mutivariate response vector and a genomic region. It is a copula-based method that allows for flexible modelling of the dependence between two test statitics and provides a unified p.value. It implements four test statistics:
 
 - ```optimal.p``` (default);
 - ```minimum.p```, minimum p-value;
 - ```Qscore```, p-value based on the Q score statistic;
 - ```QFisher```, p-value based on the Fisher combination of p-values derived from Q1 and Q2.
 
-CBM-RV allows for dependence modelling using four copulas
+CBMRV allows for dependence modelling using four copulas
 
 - ```Gaussian``` (default);
 - ```Student```, Student copula with degree of freedom equals 10;
@@ -24,10 +24,10 @@ This package can be installed from GitHub using the [devtools](https://cran.r-pr
 
 ``` r
 library(devtools)
-devtools::install_github('KarimOualkacha/CBM-RV')
+devtools::install_github('KarimOualkacha/CBMRV')
 ```
 
-The main functions are ```CMB-RV``` and ```CMB-RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
+The main functions are ```CMB.RV``` and ```CMB.RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
 
 ## Running example
 Before running an association test with one (or more) of the methods,
