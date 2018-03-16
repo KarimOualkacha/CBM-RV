@@ -1,16 +1,3 @@
----
-title: "README"
-#author: "Karim Oualkacha, Jianping Sun, Celia Greenwood, Lajmi Lakhal-Chaieb"
-date: '2018-03-15'
-output:
-  pdf_document: default
-  html_document: default
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## CBM-RV
 
 This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBM-RV) region-based association test, in presence of familial data. 
