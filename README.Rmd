@@ -92,7 +92,7 @@ Now one can run the main function in order to calculate copula-based p.value:
 
 ``` r
 CBM.RV(Y=phenotypes, 
-       G=Geno, 
+       G=genotypes, 
        covariates=covariates, 
        null.obj=null.obj, 
        copfit="Gaussian", 
