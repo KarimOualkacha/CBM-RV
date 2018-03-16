@@ -31,14 +31,6 @@ CBM-RV allows for dependence modelling using four copulas
 
 For this first version, we provide score test ans p.value calculation in the bivariate case.
 
-For more information you can look at the [vignette](https://cran.r-project.org/package=pcev/vignettes/pcev.pdf). Alternatively, if you have already installed the package along with the vignette, you can access the vignette from within ```R``` by using the following command:
-
-If you have already installed the package, you can take a look on a running example for more information. you can access the main vignette from within R by using the following command:
-
-``` r
-vignette("pcev")
-```
-
 ## Installation
 
 This package can be installed from GitHub using the [devtools](https://cran.r-project.org/package=devtools) package:
