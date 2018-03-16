@@ -51,7 +51,7 @@
 ##'     }
 ##' @author Karim Oualkacha
 ##' @export
-CBM.RV <- function(y=NULL,
+CBM.RV <- function(Y=NULL,
                    G=NULL,
                    covariates=NULL,
                    null.obj=NULL,
@@ -61,8 +61,8 @@ CBM.RV <- function(y=NULL,
 )
 {
   ## Parameter checks
-  y <- check_pheno(y)
-  check_covariates(covariates, y)
+  Y <- check_pheno(Y)
+  check_covariates(covariates, Y)
   check_copula(copfit)
   check_method(method)
   check_weights(weights)
