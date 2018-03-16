@@ -67,7 +67,7 @@ head(genotypes)
 ```Relationship matrix```; each of the methods requires a (symmetric) relationship matrix (2 $\times$ the kinship matrix). In this example we will load this matrix from the CBM-RV package.
 
 ``` r
-load("paste(path,"/kin1.Rdata", sep=""))
+load(paste(path,"/kin1.Rdata", sep=""))
 kin <- 2 *kin1
 dim(kin)
 ```
