@@ -72,7 +72,15 @@ kin <- 2 *kin1
 dim(kin)
 ```
 
-To run the main function and get p.value estimates, one needs to estimate the phenotypes variances-covariances matrix under the null model.
+The CBMRV depends on some R packages and users need to load such packages before running the CBMRV main functions. 
+
+``` r
+library(CompQuadForm); library(MASS); library(Matrix); library(mvtnorm); library(mnormt); library(numDeriv);
+library(kinship2); library(VineCopula); library(copula); library(pracma); library(matrixcalc); library(rARPACK)
+
+``` 
+
+Before running the main functoins To run the main function and get p.value estimates, one needs to estimate the phenotypes variances-covariances matrix under the null model.
 
 ``` r
 null.obj = CBM.RV.Null(Y=phenotypes, 
