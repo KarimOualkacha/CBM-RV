@@ -101,15 +101,19 @@ CBM.RV <- function(Y=NULL,
            R = try(Compute.Q.al(Q1,Q2,values1,values2,K1,K2,family=family,par=paramCop,par2=10),TRUE)
            if(class(R)=="try-error"){
              p.value=NA
+             Q = NA
            } else {
              p.value = try(R$p.value,TRUE)
+             Q = R$stat
            }
-           p.value
+           res <- c(p.value,Q,paramCop)
+           res
          },
          minimum.p={
            Q <- Compute.Q.max(Q1,Q2)
            p.value = Compute.pvalue.Q.max(Q,values1,values2,family=family,par=paramCop,par2=10)
-           p.value
+           res <- c(p.value,Q,paramCop)
+           res
          },
          Qscore={
            Q <- compute.Q.opt(Q1,Q2,V.Q12)
@@ -117,25 +121,25 @@ CBM.RV <- function(Y=NULL,
            if(class(p.value)=="try-error"){
              p.value=NA
            }
-           p.value
+           res <- c(p.value,Q,paramCop)
+           res
          },
          QFisher={
            Q <- Compute.Q.Fisher(Q1,Q2,values1,values2)
            p.value = Compute.pvalue.Q.Fisher.Copula(Q,values1,values2,family=family,par= paramCop,par2=10)
-           p.value
+           res <- c(p.value,Q,paramCop)
+           res
          },
          QMFKM={
            Q <- Q1 + Q2
            K.sum = K1 + K2
            values.sum = eigs(K.sum,matrix.rank(K.sum,method="chol"))$values
            p.value = davies(Q,values.sum)$Qq
-           p.value
+           res <- c(p.value,Q,paramCop)
+           res
          }
   )
   
-  return(list(Score.Test=Q, p.value=p.value, alpha=paramCop))
+  return(list(Score.Test=res[2], p.value=res[1], alpha=res[3]))
 }
-
-
-
 
