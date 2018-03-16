@@ -20,13 +20,13 @@ For this first version, we provide score test ans p.value calculation in the biv
 
 ## Installation
 
-The CBMRV package is under construction, however, source R functions that are needed to calculate the score test statistics and p.vlaues can be obtained from the GitHub repository ```CBMRV```. To run the CBMRV test, one can download the CBMRV R source files to a personal directory and call all R functions using ```source()``` function in R. See below a toy example for more details on how to calculate p.values. 
+The CBMRV package is under construction, however, all the R source functions that are needed to calculate the CBMRV score test statistics and p.vlaues can be obtained from the GitHub repository ```CBMRV```. To run the CBMRV test, one can download the CBMRV R source files into a personal/home directory and call all R functions using ```source()``` function in R. See below a toy example for more details on how to run the CBMRV main functions and calculate p.values. 
 
 The main functions are ```CMB.RV``` and ```CMB.RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
 
 
-## Running example
-All the required R functions, including the two main R functions ```CMB.RV``` and ```CMB.RV.null```, can be downloaded via ```source()``` funtion in R, as follow:
+## Toy example
+All the required R functions, including ```CMB.RV``` and ```CMB.RV.null```, can be downloaded via ```source()``` funtion in R, as follow:
 
 ``` r
 path = "path_to_R_files_"
