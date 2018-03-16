@@ -46,25 +46,24 @@ The main functions are ```CMB-RV``` and ```CMB-RV.null```, and indeed most users
 Before running an association test with one (or more) of the methods,
 the following data needs to be present:
 
-"Phenotype data"; phenotype data should be present in the form of
+```Phenotype data```; phenotype data should be present in the form of
 an R matrix (one raw for each individual). It is up to you (as user)
 to create the matrix, for example by reading it from a CSV file using R's
 |read.csv()| function or like this:
-
+``` r
 data(phenotypes)
 head(phenotypes)
+```
 
-@
-Covariate data; this data should be present in the form
+```Covariate data```; this data should be present in the form
   of a matrix. Like the phenotype data it is up to you to load this
   data. Here we will load the data from the CBM-RV package:
-
 ``` r
 data(covariates)
 dim(covariates)
 ```
 
-Genotype data; genotype data this data should be present in the form
+```Genotype data```; genotype data this data should be present in the form
   of a matrix.
 ``` r
 data(genotypes)
@@ -72,7 +71,7 @@ head(genotypes)
 dim(covariates)
 ```
 
-Relationship matrix; each of the methods requires a (symmetric) relationship matrix (2 $\times$ the kinship matrix). In this example we will load this matrix from the CBM-RV package.
+```Relationship matrix```; each of the methods requires a (symmetric) relationship matrix (2 $\times$ the kinship matrix). In this example we will load this matrix from the CBM-RV package.
 
 ``` r
 load("kin1.Rdata")
