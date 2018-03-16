@@ -1,6 +1,6 @@
 ## CBMRV
 
-This an R package which implements a Multivariate Copula-Based Rare-Varaints (CBMRV) region-based association test, in presence of familial data. 
+This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBMRV) region-based association test, in presence of familial data. 
 
 CBMRV is a statistical tool for testing the association between a mutivariate response vector and a genomic region. It is a copula-based method that allows for flexible modelling of the dependence between two test statitics and provides a unified p.value. It implements four test statistics:
 
