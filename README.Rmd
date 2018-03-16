@@ -1,0 +1,112 @@
+---
+title: "README"
+#author: "Karim Oualkacha, Jianping Sun, Celia Greenwood, Lajmi Lakhal-Chaieb"
+date: '2018-03-15'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## CBM-RV
+
+This is an R package which implements a Multivariate Copula-Based Rare-Varaints (CBM-RV) region-based association test, in presence of familial data. 
+
+CBM-RV is a statistical tool for testing the association between a mutivariate response vector and a genomic region. It is a copula-based method that allows for flexible modelling of the dependence between two test statitics and provides a unified p.value. It implements four test statistics:
+
+- ```optimal.p``` (default);
+- ```minimum.p```, minimum p-value;
+- ```Qscore```, p-value based on the Q score statistic;
+- ```QFisher```, p-value based on the Fisher combination of p-values derived from Q1 and Q2.
+
+CBM-RV allows for dependence modelling using four copulas
+
+- ```Gaussian``` (default);
+- ```Student```, Student copula with degree of freedom equals 10;
+- ```Clayton```, Clayton copula; 
+- ```Frank```, Frank copula.
+
+For this first version, we provide score test ans p.value calculation in the bivariate case.
+
+For more information you can look at the [vignette](https://cran.r-project.org/package=pcev/vignettes/pcev.pdf). Alternatively, if you have already installed the package along with the vignette, you can access the vignette from within ```R``` by using the following command:
+
+If you have already installed the package, you can take a look on a running example for more information. you can access the main vignette from within R by using the following command:
+
+``` r
+vignette("pcev")
+```
+
+## Installation
+
+This package is available on the ... [CRAN](https://cran.r-project.org/package=pcev). It can be installed from GitHub using the [devtools](https://cran.r-project.org/package=devtools) package:
+
+``` r
+library(devtools)
+devtools::install_github('GreenwoodLab/CBM-RV', build_vignettes = TRUE)
+```
+
+The main functions are ```CMB-RV``` and ```CMB-RV.null```, and indeed most users will only need these two functions. See the functions documentation for more information about their parameters and for some examples.
+
+## Running example
+Before running an association test with one (or more) of the methods,
+the following data needs to be present:
+
+"Phenotype data"; phenotype data should be present in the form of
+an R matrix (one raw for each individual). It is up to you (as user)
+to create the matrix, for example by reading it from a CSV file using R's
+|read.csv()| function or like this:
+
+data(phenotypes)
+head(phenotypes)
+
+@
+Covariate data; this data should be present in the form
+  of a matrix. Like the phenotype data it is up to you to load this
+  data. Here we will load the data from the CBM-RV package:
+
+``` r
+data(covariates)
+dim(covariates)
+```
+
+Genotype data; genotype data this data should be present in the form
+  of a matrix.
+``` r
+data(genotypes)
+head(genotypes)
+dim(covariates)
+```
+
+Relationship matrix; each of the methods requires a (symmetric) relationship matrix (2 $\times$ the kinship matrix). In this example we will load this matrix from the CBM-RV package.
+
+``` r
+load("kin1.Rdata")
+kin <- 2 *kin1
+dim(kin)
+```
+To run the main function and get p.value estimates, one needs to estimate the phenotypes variances-covariances matrix under the null model.
+
+``` r
+null.obj = CBM.RV.Null(Y, 
+                       covariates = covariates, 
+                       kin, 
+                       nb.running.guess = 3)
+``` 
+Now one can run the main function in order to calculate copula-based p.value:
+
+``` r
+CBM.RV(y=Y, 
+       G=Geno, 
+       covariates=covariates, 
+       null.obj=null.obj, 
+       copfit="Gaussian", 
+       method="optimal.p")
+``` 
+
+## References
+
+- Sun J, Oualkacha K, Greenwood CMT, Lakhal-Chaieb L (2018). Multivariate association test for rare variants controlling for cryptic and family relatedness. [Canadian Journal of Statistics](http://dx.doi.org/10.1177/0962280216660128) (under revision).
+ 

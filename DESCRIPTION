@@ -1,0 +1,30 @@
+Package: CBMRV
+Title: Several Methods for Region-Based Genetic Association Tests
+Version: 0.0.1
+Authors@R: c(person("Karim", "Oualkacha", email =
+             "oualkacha.karim@uqam.ca", role = c("aut", "cre")),
+             person("Jianping", "Sun", email =
+             "jianping.sun@mail.mcgill.ca", role = "aut"),
+             person("M'Hamed Lajmi", "Lakhal-Chaieb", email =
+             "Lajmi.Lakhal@mat.ulaval.ca", role = "aut"),
+             person("Celia M.T.", "Greenwood", email =
+             "celia.greenwood@mcgill.ca", role = "aut")
+             )
+Author: Karim Oualkacha [aut, cre],
+  Jianping Sun [aut],
+  M'Hamed Lajmi Lakhal-Chaieb [aut],
+  Celia M.T. Greenwood [aut]
+  Maintainer: Karim Oualkacha <oualkacha.karim@uqam.ca>
+Description: This is a collection of the four region-based
+  rare-variant genetic association tests. The following tests are
+  currently implemented: optimsl.p, minimum.p, Qscore and
+  QFisher.
+Depends: R (>= 3.2.2)
+Imports: MASS, CompQuadForm, Matrix, mvtnorm, mnormt, numDeriv, kinship2, VineCopula, copula, pracma, matrixcalc, rARPACK
+Suggests: knitr, methods
+License: GPL (>=3)
+Copyright: Karim Oualkacha
+LazyData: true
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2018-03-15 23:58:55 UTC; karimoualkacha
