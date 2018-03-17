@@ -16,7 +16,7 @@ CBMRV allows for dependence modelling using four copulas
 - ```Clayton```, Clayton copula; 
 - ```Frank```, Frank copula.
 
-For this first version, we provide score test ans p.value calculation in the bivariate case.
+For this first version, we provide score test and p.value calculation in the bivariate case.
 
 ## Installation
 
